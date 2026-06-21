@@ -1,0 +1,12 @@
+# Secrets
+.env
+*.key
+!supabase_config.json.example
+
+# Python
+__pycache__/
+*.pyc
+.env
+
+# Config
+*.json con credenciales
