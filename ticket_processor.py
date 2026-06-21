@@ -251,5 +251,41 @@ def main():
                         print(f"Procesado ticket {purchase_id}: {len(products)} productos")
 
 
+def process_webhook(request):
+    """Procesa webhook de Gmail"""
+    from flask import jsonify
+    
+    # Verificar token de verificación (si lo configuramos)
+    # token = request.args.get('token')
+    
+    data = request.get_json()
+    if not data:
+        return jsonify({"status": "no data"}), 400
+    
+    # Gmail envía: {"emailAddress": "...", "historyId": "..."}
+    email_address = data.get("emailAddress")
+    history_id = data.get("historyId")
+    
+    # Procesar cambios desde historyId
+    # ... lógica de polling puntual
+    
+    return jsonify({"status": "ok"})
+
+
+def init_gmail_watch():
+    """Configura Gmail Watch API para el webhook"""
+    token = get_access_token()
+    
+    resp = requests.post(
+        "https://gmail.googleapis.com/gmail/v1/users/me/watch",
+        headers={"Authorization": f"Bearer {token}"},
+        json={
+            "labelIds": ["INBOX"],
+            "topicName": "projects/PROJECT_ID/topics/gmail-tickets"
+        }
+    )
+    return resp.json()
+
+
 if __name__ == "__main__":
-    main()
+    print("Ticket Processor - Use deploy.sh to deploy to Cloud Functions")
