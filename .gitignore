@@ -1,12 +1,10 @@
-# Secrets
-.env
-*.key
-!supabase_config.json.example
-
-# Python
+.venv/
 __pycache__/
-*.pyc
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 .env
-
-# Config
-*.json con credenciales
+.DS_Store

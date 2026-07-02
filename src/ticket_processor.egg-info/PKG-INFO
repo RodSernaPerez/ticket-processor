@@ -1,3 +1,35 @@
+Metadata-Version: 2.1
+Name: ticket-processor
+Version: 0.1.0
+Summary: Professional supermarket ticket processor with Gmail, Sheets, Supabase integration
+Author-email: Rodrigo <rodrigo@example.com>
+License: MIT
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Python: >=3.11
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic<3,>=2.7
+Requires-Dist: pydantic-settings<3,>=2.3
+Requires-Dist: requests<3,>=2.32
+Requires-Dist: structlog<25,>=24.1
+Requires-Dist: pypdf<5,>=4.0
+Requires-Dist: tenacity<9,>=8.2
+Requires-Dist: python-dotenv<2,>=1.0
+Provides-Extra: dev
+Requires-Dist: pytest<9,>=8.2; extra == "dev"
+Requires-Dist: pytest-cov<6,>=5.0; extra == "dev"
+Requires-Dist: pytest-mock<4,>=3.14; extra == "dev"
+Requires-Dist: pytest-asyncio<1,>=0.23; extra == "dev"
+Requires-Dist: ruff<1,>=0.5; extra == "dev"
+Requires-Dist: mypy<2,>=1.10; extra == "dev"
+Requires-Dist: types-requests<3,>=2.31; extra == "dev"
+Requires-Dist: pre-commit<4,>=3.7; extra == "dev"
+Requires-Dist: bandit<2,>=1.7; extra == "dev"
+Requires-Dist: pip-audit<3,>=2.7; extra == "dev"
+
 # ticket-processor
 
 Servicio Python para capturar correos nuevos de Gmail con tickets/recibos adjuntos, extraer artículos con IA usando modelos gratuitos de OpenRouter o Groq, categorizarlos con una taxonomía fija, guardarlos en Supabase y Google Sheets, y responder al email confirmando el procesamiento.

@@ -1,0 +1,41 @@
+from ticket_processor.domain.exceptions import (
+    AuthenticationError,
+    ClassificationError,
+    ConfigurationError,
+    EmailError,
+    ExternalServiceError,
+    IdempotencyError,
+    LlmError,
+    ParsingError,
+    StorageError,
+    TicketProcessorError,
+)
+from ticket_processor.domain.models import (
+    Attachment,
+    EmailMessage,
+    ProcessingResult,
+    Product,
+    ProductCategoryLevel1,
+    ProductCategoryLevel2,
+    Purchase,
+)
+
+__all__ = [
+    "Attachment",
+    "EmailMessage",
+    "ProcessingResult",
+    "Product",
+    "ProductCategoryLevel1",
+    "ProductCategoryLevel2",
+    "Purchase",
+    "TicketProcessorError",
+    "ConfigurationError",
+    "AuthenticationError",
+    "ParsingError",
+    "ClassificationError",
+    "StorageError",
+    "ExternalServiceError",
+    "LlmError",
+    "EmailError",
+    "IdempotencyError",
+]
